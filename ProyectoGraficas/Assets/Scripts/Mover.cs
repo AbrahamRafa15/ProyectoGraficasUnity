@@ -2,29 +2,50 @@ using UnityEngine;
 
 public class Mover : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 5f;
+    [SerializeField] private float moveSpeed = 5f; // Speed of movement
+    [SerializeField] private float gravity = -9.81f; // Gravity force
+    [SerializeField] private float jumpHeight = 1.5f; // Height of the jump
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private CharacterController characterController; // Reference to the CharacterController
+    private Vector3 velocity; // Current velocity of the player
+    private bool isGrounded; // Whether the player is grounded
+
     void Start()
     {
-        PrintInstructions();        
+        // Get the CharacterController component
+        characterController = GetComponent<CharacterController>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        MovePlayer();
-    }
+        // Check if the player is grounded
+        isGrounded = characterController.isGrounded;
 
-    void PrintInstructions() {
-        Debug.Log("Muévete usando flechas o wasd");
-    }
+        if (isGrounded && velocity.y < 0)
+        {
+            velocity.y = -2f; // Reset vertical velocity when grounded
+        }
 
-    void MovePlayer() {
-        float xValue = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
-        float yValue = 0.0f;
-        float zValue = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
+        // Get input for movement along the X and Z axes
+        float moveX = Input.GetAxis("Horizontal"); // A/D or Left/Right Arrow keys
+        float moveZ = Input.GetAxis("Vertical");   // W/S or Up/Down Arrow keys
 
-        transform.Translate(xValue, yValue, zValue);
+        // Calculate movement direction relative to the world
+        Vector3 move = transform.right * moveX + transform.forward * moveZ;
+
+        // Move the player using the CharacterController
+        characterController.Move(move * moveSpeed * Time.deltaTime);
+
+        // Apply jump if grounded and spacebar is pressed
+        if (isGrounded && Input.GetButtonDown("Jump"))
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
+
+        // Apply gravity
+        velocity.y += gravity * Time.deltaTime;
+
+        // Apply the vertical velocity to the player
+        characterController.Move(velocity * Time.deltaTime);
     }
 }

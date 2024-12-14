@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6510803189742504878}
-  - component: {fileID: 5732254469621021505}
   - component: {fileID: 4401866978108221126}
   m_Layer: 0
   m_Name: ReflectorSuperior
@@ -26,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2465254443372009414}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.27, y: 7, z: -10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.256863, y: -7.5084715, z: -6.7260923}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -35,18 +34,6 @@ Transform:
   - {fileID: 6577059723989825859}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5732254469621021505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2465254443372009414}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb4186e29f9c8bf4e8d803409db277bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &4401866978108221126
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -82,7 +69,6 @@ GameObject:
   - component: {fileID: 4856610533578288405}
   - component: {fileID: 7688511039245321018}
   - component: {fileID: 8348280418075555236}
-  - component: {fileID: 6223770561600583035}
   m_Layer: 0
   m_Name: Lampara
   m_TagString: Untagged
@@ -181,20 +167,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &6223770561600583035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4126157795232923016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91da72d026cfd46449bcb69ec6082ccb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objeto: {fileID: 4126157795232923016}
-  tiempoEspera: 2
 --- !u!1 &7889124595469786648
 GameObject:
   m_ObjectHideFlags: 0

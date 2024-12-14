@@ -18,6 +18,12 @@ public class Mover : MonoBehaviour
 
     void Update()
     {
+        // Skip all movement logic if the game is paused
+        if (MenuPausa.isGamePaused)
+        {
+            return;
+        }
+
         // Check if the player is grounded
         isGrounded = characterController.isGrounded;
 

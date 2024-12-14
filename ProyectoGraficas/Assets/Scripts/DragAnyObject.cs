@@ -14,6 +14,16 @@ public class DragAnyObjectPerspective : MonoBehaviour
 
     private void Update()
     {
+        // Skip input checks if the game is paused
+        if (MenuPausa.isGamePaused)
+        {
+            if (draggedObject != null)
+            {
+                ReleaseObject(); // Ensure no object is left in a dragged state
+            }
+            return;
+        }
+
         if (Input.GetMouseButtonDown(0)) // Left mouse button down
         {
             TryPickObject();

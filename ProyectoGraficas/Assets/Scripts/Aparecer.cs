@@ -29,6 +29,7 @@ public class Aparecer : MonoBehaviour
 
     private void Update() {
         if (Time.time > tiempoEspera){
+            //gameObject.SetActive(true);
             myMeshRender.enabled = true;
             if(objeto.gameObject.tag == "Player"){
                 myRigidBody.useGravity = true;
@@ -36,4 +37,5 @@ public class Aparecer : MonoBehaviour
         }
     }
 
+    
 }
